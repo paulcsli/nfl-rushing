@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'webpacker-react', "~> 1.0.0.beta.1"
+
 gem 'rspec-rails', '~> 3.5'
 gem 'database_cleaner'
 
