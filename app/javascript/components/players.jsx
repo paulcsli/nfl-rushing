@@ -1,22 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import ReactTable from 'react-table-v6'
+import 'react-table-v6/react-table.css'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+import { tableColumns } from './constants'
 
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: PropTypes.string
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
+function Players(props) {
+  return (
+    <ReactTable
+      data={props.data}
+      columns={tableColumns}
+      defaultPageSize={10}
+      className="-striped -highlight"
+    />
   )
-})
+}
+
+export default Players;
