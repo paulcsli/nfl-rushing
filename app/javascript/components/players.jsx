@@ -11,6 +11,7 @@ function Players(props) {
       data={props.data}
       columns={tableColumns}
       defaultPageSize={10}
+      filterable
       className="-striped -highlight"
     />
   )
