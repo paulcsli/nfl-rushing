@@ -28,15 +28,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'webpacker-react', "~> 1.0.0.beta.1"
 
 gem 'rspec-rails', '~> 3.5'
-gem 'database_cleaner'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
