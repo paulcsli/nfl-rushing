@@ -1,22 +1,55 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import ReactTable from 'react-table-v6'
+import 'react-table-v6/react-table.css'
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
+import { tableColumns } from './constants'
 
-Hello.defaultProps = {
-  name: 'David'
+class Players extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      sorted: [],
+      filtered: []
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    // event.preventDefault();
+  }
+
+  render() {
+    return (
+      <div>
+        <code>
+          <strong>this.state ===</strong>{" "}
+          {JSON.stringify(this.state, null, 2)}
+        </code>
+        <ReactTable
+          data={this.props.data}
+          columns={tableColumns}
+          defaultPageSize={10}
+          sortable={false}
+          filterable={false}
+          className="-striped -highlight"
+          sorted={this.state.sorted}
+          onSortedChange={sorted => this.setState({ sorted })}
+          filtered={this.state.filtered}
+          onFilteredChange={filtered => this.setState({ filtered })}
+        />
+
+        {/* TODO: find a more element way to handle form submission */}
+        <form action="/players/download_csv" method="get" onSubmit={this.handleSubmit}>
+          <input type="hidden" name="sorted[attr]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].id} />
+          <input type="hidden" name="sorted[desc]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].desc} />
+          <input type="hidden" name="filtered[attr]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].id} />
+          <input type="hidden" name="filtered[prefix]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].value} />
+          <input type="submit" value="Download as CSV" />
+        </form>
+      </div>
+    )
+  }
 }
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+export default Players;

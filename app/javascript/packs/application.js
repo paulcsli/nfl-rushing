@@ -8,13 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
-import Hello from 'components/players'
+import Players from 'components/players'
 import WebpackerReact from 'webpacker-react'
 
-WebpackerReact.setup({Hello})
+WebpackerReact.setup({Players})
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
