@@ -5,7 +5,7 @@ export const tableColumns = [
     filterable: true,
     filterMethod: (filter, row) => {
       const search_str = filter.value.charAt(0).toUpperCase() + filter.value.slice(1).toLowerCase()
-      return row[filter.id].startsWith(search_str)
+      return row[filter.id].search(search_str) != -1
     }
   },
   {

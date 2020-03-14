@@ -41,10 +41,10 @@ class Players extends React.Component {
 
         {/* TODO: find a more element way to handle form submission */}
         <form action="/players/download_csv" method="get" onSubmit={this.handleSubmit}>
-          <input type="hidden" name="sorted[attr]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].id} />
+          <input type="hidden" name="sorted[attr_name]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].id} />
           <input type="hidden" name="sorted[desc]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].desc} />
-          <input type="hidden" name="filtered[attr]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].id} />
-          <input type="hidden" name="filtered[prefix]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].value} />
+          <input type="hidden" name="filtered[attr_name]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].id} />
+          <input type="hidden" name="filtered[search_value]" value={this.state.filtered.length == 0 ? '' : this.state.filtered[0].value} />
           <input type="submit" value="Download as CSV" />
         </form>
       </div>
