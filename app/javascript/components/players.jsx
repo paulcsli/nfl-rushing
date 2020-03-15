@@ -44,7 +44,7 @@ class Players extends React.Component {
           onFilteredChange={filtered => this.setState({ filtered })}
         />
 
-        {/* TODO: find a more element way to handle form submission */}
+        {/* TODO: use GQL instead */}
         <form action="/players/download_csv" method="get" onSubmit={this.handleSubmit}>
           <input type="hidden" name="sorted[attr_name]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].id} />
           <input type="hidden" name="sorted[desc]" value={this.state.sorted.length == 0 ? '' : this.state.sorted[0].desc} />
