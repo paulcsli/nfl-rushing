@@ -8,7 +8,6 @@ require 'pp'
 Player.delete_all
 
 begin
-  # TODO: maybe have url as an UI input
   url = "https://raw.githubusercontent.com/tsicareers/nfl-rushing/master/rushing.json"
   file = open(url)
   players = JSON.load(file)

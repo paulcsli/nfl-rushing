@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ReactTable from 'react-table-v6'
 import 'react-table-v6/react-table.css'
 
@@ -29,10 +28,6 @@ class Players extends React.Component {
   render() {
     return (
       <div>
-        <code>
-          <strong>this.state ===</strong>{" "}
-          {JSON.stringify(this.state, null, 2)}
-        </code>
         <div>
           <button onClick={this.resetState}>Reset Table State</button>
         </div>
