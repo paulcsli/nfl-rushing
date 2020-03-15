@@ -31,13 +31,18 @@ In this repo is a sample data file [`rushing.json`](/rushing.json).
 # Installation
 ## git clone the repo to any desired directories
 cd nfl-rushing
+
 bundle install
+
 yarn install
+
 rails db:setup
+
 rails server
 
-## How to change source json file
+## how to change source json file
 cd nfl-rushing/db/seed.rb
+
 ##### change variable called 'url' to a link that points to desired raw json file
 rails db:seed
 
