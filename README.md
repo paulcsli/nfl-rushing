@@ -17,7 +17,7 @@ We have sets of records representing football players' rushing statistics. All r
 
 In this repo is a sample data file [`rushing.json`](/rushing.json).
 
-##### Requirements
+# Requirements
 1. Create a web app which must be able to do the following steps
     1. Create a webpage which displays a table with the contents of [`rushing.json`](/rushing.json)
     2. The user should be able to sort the players by _Total Rushing Yards_, _Longest Rush_ and _Total Rushing Touchdowns_
@@ -28,8 +28,8 @@ In this repo is a sample data file [`rushing.json`](/rushing.json).
 
 3. Update the section `Installation and running this solution` in the README file explaining how to run your code
 
-### Installation
-# git clone the repo to any desired directories
+# Installation
+## git clone the repo to any desired directories
 cd nfl-rushing
 bundle install
 yarn install
@@ -38,6 +38,6 @@ rails server
 
 ## How to change source json file
 cd nfl-rushing/db/seed.rb
-# change variable called 'url' to a link that points to desired raw json file
+##### change variable called 'url' to a link that points to desired raw json file
 rails db:seed
 

@@ -8,7 +8,7 @@ require 'pp'
 Player.delete_all
 
 begin
-  url = "https://raw.githubusercontent.com/tsicareers/nfl-rushing/master/rushing.json"
+  url = "https://raw.githubusercontent.com/paulcsli/nfl-rushing/master/db/rushing.json"
   file = open(url)
   players = JSON.load(file)
 rescue => exception
