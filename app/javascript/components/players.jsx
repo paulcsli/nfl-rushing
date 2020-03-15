@@ -5,18 +5,25 @@ import 'react-table-v6/react-table.css'
 
 import { tableColumns } from './constants'
 
+const makeDefaultState = () => ({
+  sorted: [],
+  filtered: []
+});
+
 class Players extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      sorted: [],
-      filtered: []
-    }
+    this.state = makeDefaultState()
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.resetState = this.resetState.bind(this)
   }
 
   handleSubmit(event) {
     // event.preventDefault();
+  }
+
+  resetState() {
+    this.setState(makeDefaultState());
   }
 
   render() {
@@ -26,6 +33,9 @@ class Players extends React.Component {
           <strong>this.state ===</strong>{" "}
           {JSON.stringify(this.state, null, 2)}
         </code>
+        <div>
+          <button onClick={this.resetState}>Reset Table State</button>
+        </div>
         <ReactTable
           data={this.props.data}
           columns={tableColumns}
