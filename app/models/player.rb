@@ -1,3 +1,5 @@
+require 'csv'
+
 class Player < ApplicationRecord
   NON_VALIDATABLE_ATTRS = ["id", "created_at", "updated_at"]
   VALIDATABLE_ATTRS = Player.attribute_names.reject{|attr| NON_VALIDATABLE_ATTRS.include?(attr)}
@@ -28,5 +30,18 @@ class Player < ApplicationRecord
           csv << VALIDATABLE_ATTRS.map{ |attr| player.send(attr) }
       end
     end
+  end
+
+  def self.generate_csv(sort_params, filter_params)
+    destination = "#{Rails.root}/app/tmp"
+    CSV.open(destination, "wb", {headers: true}) do |csv|  
+      csv << VALIDATABLE_ATTRS
+      Player.filter_by(filter_params)
+        .order_by(sort_params)
+        .each do |player|
+          csv << VALIDATABLE_ATTRS.map{ |attr| player.send(attr) }
+      end
+    end
+    return destination
   end
 end
